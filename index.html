@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LWESS - Lavage Auto</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- LOADING LUXURY -->
+<div id="loading">
+  <div class="logo">LWESS</div>
+  <div class="luxury-spinner"></div>
+</div>
+
+<div id="mainContent" style="display:none;">
+  <header>
+    <div class="logo">LWESS</div>
+    <nav>
+      <ul>
+        <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ACCUEIL -->
+  <section class="hero" id="accueil">
+    <h1>Bienvenue <span class="highlight">Chez LWESS</span></h1>
+    <p>Propreté, brillance, perfection.</p>
+    <button class="animated-btn" id="startBtn">Réserver maintenant</button>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services" style="display:none;">
+    <h2 class="section-title">Nos Services</h2>
+    
+    <div class="service-card clickable" data-type="Lavage Normal">
+      <img src="img/normal.jpg" alt="Normal"/>
+      <h3>Lavage Normal</h3>
+      <p>Extérieur</p>
+      <span class="price">30 DT</span>
+    </div>
+    
+    <div class="service-card clickable" data-type="Lavage Complet">
+      <img src="img/complet.jpg" alt="Complet"/>
+      <h3>Lavage Complet</h3>
+      <p>Intérieur + Extérieur</p>
+      <span class="price">100 DT</span>
+    </div>
+    
+    <div class="service-card clickable" data-type="Fumée">
+      <img src="img/fumee.jpg" alt="Fumée"/>
+      <h3>Fumée</h3>
+      <p>Désinfection</p>
+      <span class="price">150 DT</span>
+    </div>
+    
+    <!-- NOUVEAU : LAVAGE MOTO -->
+    <div class="service-card clickable" data-type="Lavage Moto">
+      <img src="img/moto.jpg" alt="Moto"/>
+      <h3>Lavage Moto</h3>
+      <p>Nettoyage complet moto</p>
+      <span class="price">10 DT</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section" style="display:none;">
+    <h2 class="section-title">Contactez-nous</h2>
+    <div class="contact-info">
+      <p><strong>Téléphone :</strong> +216 54 282 107</p>
+      <p><strong>Email :</strong> contact@lwess.tn</p>
+      <p><strong>Adresse :</strong> Avenue Habib Bourguiba, Tunis</p>
+      <p><strong>Horaires :</strong> 10:00 - 22:00 tous les jours</p>
+    </div>
+  </section>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar" class="sidebar">
+    <button id="closeSidebar">×</button>
+    <h2><span id="selectedType">...</span></h2>
+    <div id="totalPrice" class="total">Total: 0 DT</div>
+    
+    <!-- OPTIONS -->
+    <div class="options"></div>
+
+    <h3>Client</h3>
+    <input type="text" id="clientSurname" placeholder="Prénom" required/>
+    <input type="text" id="clientName" placeholder="Nom" required/>
+    <input type="tel" id="clientPhone" placeholder="Téléphone" required/>
+
+    <h3>Date</h3>
+    <input type="date" id="datePicker"/>
+    <h3>Heure</h3>
+    <div id="slots" class="slots-grid"></div>
+
+    <button id="confirm">Confirmer</button>
+  </div>
+
+  <!-- CONFIRMATION MODAL -->
+  <div id="confirmModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Réservation Confirmée</h2>
+        <span class="close-modal">×</span>
+      </div>
+      <div class="modal-body">
+        <div class="summary-item"><strong>Service:</strong> <span id="modalService"></span></div>
+        <div class="summary-item"><strong>Date:</strong> <span id="modalDate"></span></div>
+        <div class="summary-item"><strong>Heure:</strong> <span id="modalTime"></span></div>
+        <div class="summary-item"><strong>Client:</strong> <span id="modalClient"></span></div>
+        <div class="summary-item"><strong>Téléphone:</strong> <span id="modalPhone"></span></div>
+        <div class="summary-item"><strong>Options:</strong> <span id="modalOptions"></span></div>
+        <div class="summary-item total"><strong>Total:</strong> <span id="modalTotal"></span> DT</div>
+      </div>
+      <div class="modal-footer">
+        <button id="closeModalBtn" class="luxury-btn">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
