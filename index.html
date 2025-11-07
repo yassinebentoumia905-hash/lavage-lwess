@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- LOADING LUXURY -->
+<!-- LOADING -->
 <div id="loading">
   <div class="logo">LWESS</div>
   <div class="luxury-spinner"></div>
@@ -39,31 +39,36 @@
     
     <div class="service-card clickable" data-type="Lavage Normal">
       <img src="img/normal.jpg" alt="Normal"/>
-      <h3>Lavage Normal</h3>
-      <p>Extérieur</p>
-      <span class="price">30 DT</span>
+      <div class="service-info">
+        <h3>Lavage Normal</h3>
+        <p>Extérieur + Intérieur</p>
+        <span class="price">30 DT</span>
+      </div>
     </div>
     
     <div class="service-card clickable" data-type="Lavage Complet">
       <img src="img/complet.jpg" alt="Complet"/>
-      <h3>Lavage Complet</h3>
-      <p>Intérieur + Extérieur</p>
-      <span class="price">100 DT</span>
+      <div class="service-info">
+        <h3>Lavage Complet</h3>
+        <p>Extérieur + Intérieur + Produits spéciaux</p>
+        <span class="price">60 DT</span>
+      </div>
     </div>
     
     <div class="service-card clickable" data-type="Fumée">
       <img src="img/fumee.jpg" alt="Fumée"/>
-      <h3>Fumée</h3>
-      <p>Désinfection</p>
-      <span class="price">150 DT</span>
+      <div class="service-info">
+        <h3>Fumée</h3>
+        <p>Films teintés — choix personnalisés</p>
+      </div>
     </div>
     
-    <!-- NOUVEAU : LAVAGE MOTO -->
     <div class="service-card clickable" data-type="Lavage Moto">
       <img src="img/moto.jpg" alt="Moto"/>
-      <h3>Lavage Moto</h3>
-      <p>Nettoyage complet moto</p>
-      <span class="price">10 DT</span>
+      <div class="service-info">
+        <h3>Lavage Moto</h3>
+        <p>Nettoyage complet moto</p>
+      </div>
     </div>
   </section>
 
@@ -82,17 +87,32 @@
   <div id="sidebar" class="sidebar">
     <button id="closeSidebar">×</button>
     <h2><span id="selectedType">...</span></h2>
-    <div id="totalPrice" class="total">Total: 0 DT</div>
+
+    <!-- TOTAL -->
+    <div id="totalPrice" class="total-price">Total: 0 DT</div>
+
+    <!-- Produits -->
+    <div id="produitsSection">
+      <h3>Produits utilisés :</h3>
+      <ul id="produitsList"></ul>
+    </div>
     
-    <!-- OPTIONS -->
+    <!-- Options -->
     <div class="options"></div>
 
-    <h3>Client</h3>
+    <!-- Adresse -->
+    <div id="adresseField" style="display:none; margin-top:20px;">
+      <input type="text" id="clientAddress" placeholder="Votre adresse exacte"/>
+    </div>
+
+    <!-- Client -->
+    <h3 style="margin-top:25px;">Client</h3>
     <input type="text" id="clientSurname" placeholder="Prénom" required/>
     <input type="text" id="clientName" placeholder="Nom" required/>
     <input type="tel" id="clientPhone" placeholder="Téléphone" required/>
 
-    <h3>Date</h3>
+    <!-- Date & Heure -->
+    <h3 style="margin-top:20px;">Date</h3>
     <input type="date" id="datePicker"/>
     <h3>Heure</h3>
     <div id="slots" class="slots-grid"></div>
@@ -100,12 +120,12 @@
     <button id="confirm">Confirmer</button>
   </div>
 
-  <!-- CONFIRMATION MODAL -->
-  <div id="confirmModal" class="modal" style="display:none;">
+  <!-- MODAL -->
+  <div id="confirmModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
         <h2>Réservation Confirmée</h2>
-        <span class="close-modal">×</span>
+        <span class="close-modal">×</span> 
       </div>
       <div class="modal-body">
         <div class="summary-item"><strong>Service:</strong> <span id="modalService"></span></div>
@@ -113,6 +133,7 @@
         <div class="summary-item"><strong>Heure:</strong> <span id="modalTime"></span></div>
         <div class="summary-item"><strong>Client:</strong> <span id="modalClient"></span></div>
         <div class="summary-item"><strong>Téléphone:</strong> <span id="modalPhone"></span></div>
+        <div class="summary-item"><strong>Adresse:</strong> <span id="modalAddress"></span></div>
         <div class="summary-item"><strong>Options:</strong> <span id="modalOptions"></span></div>
         <div class="summary-item total"><strong>Total:</strong> <span id="modalTotal"></span> DT</div>
       </div>
