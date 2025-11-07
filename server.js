@@ -19,16 +19,18 @@ if (!fs.existsSync(file)) {
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
+// 🔹 Générer les slots disponibles (de 09:00 à 19:00 toutes les 1h)
 const generateSlots = () => {
   const slots = [];
-  for (let h = 10; h <= 22; h += 1.5) {
-    const hour = Math.floor(h).toString().padStart(2, '0');
-    const minute = h % 1 === 0.5 ? '30' : '00';
-    slots.push(`${hour}:${minute}`);
+  for (let h = 9; h <= 19; h++) {
+    const hour = h.toString().padStart(2, "0");
+    slots.push(`${hour}:00`);
   }
   return slots;
 };
 
+
+// 🟢 GET slots disponibles
 app.get('/api/slots/:date', async (req, res) => {
   try {
     const date = req.params.date;
@@ -44,6 +46,7 @@ app.get('/api/slots/:date', async (req, res) => {
   }
 });
 
+// 🟢 POST réservation
 app.post('/api/reserver', async (req, res) => {
   const { service, date, heure, options = [], client, total } = req.body;
   if (!service || !date || !heure || !client?.name || !client?.surname || !client?.phone) {
@@ -54,7 +57,7 @@ app.post('/api/reserver', async (req, res) => {
     if (data.find(r => r.date === date && r.heure === heure)) {
       return res.status(400).send("Créneau déjà réservé");
     }
-    const newRes = { service, date, heure, options, client, total, timestamp: new Date().toISOString() };
+    const newRes = { service, date, heure, options, client, total, confirmé: false, timestamp: new Date().toISOString() };
     data.push(newRes);
     await writeFile(file, JSON.stringify(data, null, 2));
     console.log("Réservation ajoutée:", newRes);
@@ -65,13 +68,14 @@ app.post('/api/reserver', async (req, res) => {
   }
 });
 
+// 🟢 GET toutes les réservations + stats
 app.get('/api/reservations', async (req, res) => {
   try {
     const data = JSON.parse(await readFile(file, 'utf-8'));
     const today = new Date().toISOString().split('T')[0];
-    const todayData = data.filter(r => r.date === today);
+    const todayData = data.filter(r => r.date === today && r.confirmé);
     const month = today.slice(0, 7);
-    const monthData = data.filter(r => r.date.startsWith(month));
+    const monthData = data.filter(r => r.date.startsWith(month) && r.confirmé);
 
     const todayCount = todayData.length;
     const todayRevenue = todayData.reduce((sum, r) => sum + (r.total || 0), 0);
@@ -90,7 +94,7 @@ app.get('/api/reservations', async (req, res) => {
           return acc;
         }, {}),
         revenueByDay: data.reduce((acc, r) => {
-          acc[r.date] = (acc[r.date] || 0) + r.total;
+          acc[r.date] = (acc[r.date] || 0) + (r.total || 0);
           return acc;
         }, {})
       }
@@ -101,6 +105,26 @@ app.get('/api/reservations', async (req, res) => {
   }
 });
 
+// 🟢 POST confirmer lavage
+app.post('/api/confirm/:date/:heure', async (req, res) => {
+  try {
+    const { date, heure } = req.params;
+    let data = JSON.parse(await readFile(file, 'utf-8'));
+
+    const idx = data.findIndex(r => r.date === date && r.heure === heure);
+    if (idx === -1) return res.status(404).send("Réservation introuvable");
+
+    data[idx].confirmé = true;
+    await writeFile(file, JSON.stringify(data, null, 2));
+
+    res.send("Réservation confirmée");
+  } catch (err) {
+    console.error("Erreur confirmation:", err);
+    res.status(500).send("Erreur serveur");
+  }
+});
+
+// 🟢 DELETE réservation
 app.delete('/api/delete/:date/:heure', async (req, res) => {
   try {
     const { date, heure } = req.params;
@@ -116,5 +140,5 @@ app.delete('/api/delete/:date/:heure', async (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`LWESS 2000/100 en ligne sur le port ${PORT}`);
+  console.log(`✅ Serveur en ligne sur le port ${PORT}`);
 });
