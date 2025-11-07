@@ -114,8 +114,7 @@ app.delete('/api/delete/:date/:heure', async (req, res) => {
   }
 });
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`LWESS 2000/100 sur http://localhost:${PORT}`);
-  console.log(`Site: http://localhost:${PORT}/index.html`);
+  console.log(`LWESS 2000/100 en ligne sur le port ${PORT}`);
 });
