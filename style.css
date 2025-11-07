@@ -1,4 +1,4 @@
-/* style.css – LUXURY PRO 1000000000/100 – MOTO + WENTY FI BLASTEK SEUL */
+/* === GLOBAL + LUXE === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { 
   font-family: 'Segoe UI', sans-serif; 
@@ -8,15 +8,13 @@ body {
   overflow-x: hidden;
 }
 
-/* LOADING – YODHHER FISSA */
+/* LOADING */
 #loading {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: #000; display: flex; flex-direction: column;
   justify-content: center; align-items: center; z-index: 9999;
-  transition: opacity 0.6s ease;
-  opacity: 1;
+  transition: opacity 0.6s ease; opacity: 1;
 }
-#loading.fade-out { opacity: 0; }
 .luxury-spinner {
   width: 80px; height: 80px; margin-top: 20px;
   border: 6px solid #1a0033; border-top-color: #9d4edd;
@@ -24,7 +22,7 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Header + Nav */
+/* HEADER */
 header { 
   padding: 20px 40px; 
   background: rgba(0,0,0,0.85); 
@@ -72,7 +70,7 @@ nav ul {
   border-radius: 2px; 
 }
 
-/* Hero */
+/* HERO */
 .hero { 
   text-align: center; 
   padding: 140px 20px 100px; 
@@ -86,11 +84,6 @@ nav ul {
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent; 
   font-weight: 900; 
-}
-.hero p { 
-  font-size: 18px; 
-  color: #ccc; 
-  margin-bottom: 24px; 
 }
 .animated-btn { 
   background: linear-gradient(45deg, #9d4edd, #c77dff); 
@@ -109,7 +102,7 @@ nav ul {
   box-shadow: 0 18px 40px rgba(199,125,255,0.6); 
 }
 
-/* NOS SERVICES */
+/* SERVICES */
 .section-title {
   text-align: center;
   margin: 90px 0 50px;
@@ -119,93 +112,57 @@ nav ul {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-/* SERVICES – VERTICAL + MOTO */
-.services { 
+.services {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 38px;
-  padding: 20px 30px;
+  gap: 70px;
+  padding: 80px 20px;
   max-width: 900px;
   margin: 0 auto;
 }
-.service-card { 
+.service-card {
   width: 100%;
   max-width: 420px;
-  background: rgba(26, 0, 51, 0.95); 
-  border-radius: 28px; 
-  overflow: hidden; 
-  box-shadow: 0 18px 42px rgba(0,0,0,0.38); 
-  transition: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
-  cursor: pointer; 
-  border: 2.2px solid rgba(157,78,221,0.42); 
-  display: flex; 
-  flex-direction: column; 
+  background: rgba(26, 0, 51, 0.95);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+  transition: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  cursor: pointer;
+  border: 2.2px solid rgba(157, 78, 221, 0.42);
 }
 .service-card:hover { 
   transform: translateY(-12px); 
   box-shadow: 0 32px 68px rgba(157,78,221,0.5); 
   border-color: #9d4edd; 
 }
-
-/* IMAGE */
 .service-card img { 
   width: 100%; 
   height: 200px; 
   object-fit: cover; 
-  object-position: center; 
   border-bottom: 3.5px solid rgba(157,78,221,0.38); 
-  transition: all 0.4s ease; 
 }
-.service-card:hover img { 
-  transform: scale(1.05); 
-  filter: brightness(1.16) contrast(1.07); 
-}
-
-/* TEXTE */
 .service-info { 
   padding: 24px 22px; 
   text-align: center; 
-  flex-grow: 1; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
 }
 .service-info h3 { 
   font-size: 24px; 
   margin-bottom: 8px; 
   color: #fff; 
-  font-weight: 700; 
 }
 .service-info p { 
   font-size: 16px; 
   color: #ccc; 
   margin-bottom: 14px; 
-  line-height: 1.5; 
 }
-.price { 
-  font-size: 28px; 
-  font-weight: 900; 
-  background: linear-gradient(90deg, #9d4edd, #e8b8ff); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  margin-top: auto; 
-}
-
-/* Contact */
-.contact-section { 
-  padding: 100px 40px; 
-  text-align: center; 
-  max-width: 800px; 
-  margin: 0 auto; 
-}
-.contact-info p { 
-  margin: 18px 0; 
-  font-size: 19px; 
-}
-.contact-info strong { 
-  color: #9d4edd; 
+.price {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #9d4edd, #e8b8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* SIDEBAR */
@@ -234,8 +191,23 @@ nav ul {
   color: #e8b8ff; 
 }
 
-/* INPUTS + SELECT */
-.sidebar input, .sidebar select { 
+/* TOTAL FOU9 */
+.total-price {
+  font-size: 26px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #9d4edd, #e8b8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 15px 0 25px;
+  padding: 12px;
+  border-radius: 16px;
+  background-color: rgba(157,78,221,0.15);
+  border: 2px solid #9d4edd;
+}
+
+/* INPUTS */
+.sidebar input { 
   width: 100%; 
   padding: 18px; 
   margin: 16px 0; 
@@ -246,64 +218,96 @@ nav ul {
   font-size: 17px; 
 }
 
-/* CHECKBOX DESIGN PREMIUM */
-.checkbox-group {
+/* PRODUITS */
+#produitsSection { 
+  margin: 15px 0; 
+  text-align: center; 
+}
+#produitsList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+#produitsList li {
+  background: rgba(157,78,221,0.06);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(157,78,221,0.08);
+  color: #dcd0ff;
+  font-size: 15px;
+}
+
+/* RADIO PRO */
+.options { margin: 20px 0; }
+.radio-option {
+  background: linear-gradient(135deg, #2a004d, #1a0033);
+  border: 2px solid #5b1f9b;
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
-  margin: 16px 0;
-  padding: 16px;
-  background: rgba(157,78,221,0.08);
-  border: 1.5px solid rgba(157,78,221,0.3);
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  justify-content: space-between;
+  transition: all 0.4s ease;
   cursor: pointer;
-}
-.checkbox-group:hover {
-  background: rgba(157,78,221,0.15);
-  border-color: #9d4edd;
-  transform: translateY(-2px);
-}
-.checkbox-group input[type="checkbox"] {
-  appearance: none;
-  width: 24px; height: 24px;
-  background: rgba(157,78,221,0.2);
-  border: 2.5px solid #9d4edd;
-  border-radius: 8px;
-  margin-right: 15px;
-  cursor: pointer;
-  transition: all 0.3s;
   position: relative;
+  overflow: hidden;
 }
-.checkbox-group input[type="checkbox"]:checked {
+.radio-option:hover {
+  border-color: #9d4edd;
+  background: linear-gradient(135deg, #3b146b, #2a004d);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(157,78,221,0.3);
+}
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radio-custom {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #9d4edd;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.radio-option input[type="radio"]:checked + .radio-custom {
   background: linear-gradient(45deg, #9d4edd, #c77dff);
   border-color: #9d4edd;
 }
-.checkbox-group input[type="checkbox"]:checked::after {
-  content: '✓';
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+  content: '';
   position: absolute;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
   top: 50%; left: 50%;
+  width: 12px; height: 12px;
+  background: white;
+  border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-.checkbox-group label {
-  font-size: 16px;
+.radio-label {
+  flex: 1;
+  margin-left: 16px;
   color: #e8d9ff;
   font-weight: 600;
-  cursor: pointer;
-  flex: 1;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-/* TOTAL */
-.total { 
-  font-size: 28px; 
-  font-weight: bold; 
-  background: linear-gradient(90deg, #9d4edd, #e8b8ff); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  text-align: center; 
-  margin: 30px 0; 
+.price-tag {
+  background: linear-gradient(45deg, #9d4edd, #c77dff);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 15px;
+  min-width: 70px;
+  text-align: center;
 }
 
 /* SLOTS */
@@ -322,6 +326,7 @@ nav ul {
   font-size: 16px; 
   transition: 0.4s; 
   cursor: pointer; 
+  text-align: center;
 }
 .slot-btn.selected { 
   background: linear-gradient(45deg, #9d4edd, #c77dff); 
@@ -360,9 +365,6 @@ nav ul {
   transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .modal.show .modal-content { transform: scale(1); }
-.modal-header { 
-  display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; 
-}
 .modal-header h2 { 
   background: linear-gradient(90deg, #9d4edd, #e8b8ff); 
   -webkit-background-clip: text; 
@@ -371,10 +373,7 @@ nav ul {
 }
 .close-modal { font-size: 32px; color: #aaa; cursor: pointer; }
 .modal-body { font-size: 18px; line-height: 1.9; }
-.summary-item { margin: 12px 0; }
 .summary-item strong { color: #9d4edd; }
-.total { font-size: 22px; font-weight: bold; margin-top: 20px; }
-.modal-footer { text-align: center; margin-top: 30px; }
 .luxury-btn { 
   background: linear-gradient(45deg, #9d4edd, #c77dff); 
   color: #fff; 
@@ -392,32 +391,14 @@ nav ul {
   box-shadow: 0 15px 35px rgba(199,125,255,0.5); 
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .services { gap: 34px; padding: 40px 20px; }
-  .service-card { max-width: 380px; }
-  .service-card img { height: 180px; }
-}
-@media (max-width: 600px) {
-  .logo { font-size: 26px; }
-  nav ul { gap: 15px; font-size: 15px; }
-  .hero { padding: 100px 15px; }
-  .hero h1 { font-size: 36px; }
-  .services { gap: 30px; padding: 30px 15px; }
-  .service-card { max-width: 340px; }
-  .service-card img { height: 160px; }
-  .sidebar { padding: 25px; }
-}
-/* BOUTON FERMER SIDEBAR DESIGN */
+/* CLOSE SIDEBAR */
 #closeSidebar {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 20px; right: 20px;
   background: rgba(157,78,221,0.2);
   color: #e8b8ff;
   border: 2px solid #9d4edd;
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   font-size: 24px;
   cursor: pointer;
@@ -427,10 +408,83 @@ nav ul {
   transition: all 0.3s ease;
   z-index: 1001;
 }
-
 #closeSidebar:hover {
   background: linear-gradient(45deg, #9d4edd, #c77dff);
   color: #fff;
   transform: scale(1.1);
   box-shadow: 0 0 20px rgba(157,78,221,0.6);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .logo { font-size: 26px; }
+  nav ul { gap: 15px; font-size: 15px; }
+  .hero h1 { font-size: 36px; }
+  .service-card img { height: 160px; }
+  .sidebar { padding: 25px; }
+  .radio-label { font-size: 15px; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .price-tag { font-size: 14px; }
+  .total-price { font-size: 22px; }
+}
+/* === CHECKBOX LUXE STYLE (وانتي في بلاصتك) === */
+.checkbox-group {
+  background: linear-gradient(135deg, #2a004d, #1a0033);
+  border: 2px solid #5b1f9b;
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.checkbox-group:hover {
+  border-color: #9d4edd;
+  background: linear-gradient(135deg, #3b146b, #2a004d);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(157,78,221,0.3);
+}
+
+.checkbox-group input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #9d4edd;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.checkbox-group input[type="checkbox"]:checked + .checkbox-custom {
+  background: linear-gradient(45deg, #9d4edd, #c77dff);
+  border-color: #9d4edd;
+}
+
+.checkbox-group input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: '✔';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.checkbox-label {
+  flex: 1;
+  margin-left: 16px;
+  color: #e8d9ff;
+  font-weight: 600;
+  font-size: 17px;
 }
